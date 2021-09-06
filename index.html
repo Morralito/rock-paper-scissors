@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors by Morralito</title>
+</head>
+<body>
+
+   <script>
+      function computerPlay(){
+          const RPS = ["rock", "paper", "scissors"];
+          return RPS[Math.floor(Math.random() * (3 - 0) + 0)];
+      }
+
+      function roundWinner(playerSelection, computerSelection){
+         if(computerSelection === playerSelection){
+            return "It's a tie!";
+         } 
+         else {
+            switch(playerSelection){
+
+               case 'rock':
+                  if (computerSelection === "paper"){
+                     return `You lose! ${computerSelection} beats ${playerSelection} :(`;
+                  }
+                  else{
+                     return `You win! ${playerSelection} beats ${computerSelection} :D`;
+                  }
+
+               case 'paper':
+                  if (computerSelection === "scissors"){
+                     return `You lose! ${computerSelection} beats ${playerSelection} :(`;
+                  }
+                  else{
+                     return `You win! ${playerSelection} beats ${computerSelection} :D`;
+                  }
+
+               case 'scissors':
+               if (computerSelection === "rock"){
+                     return `You lose! ${computerSelection} beats ${playerSelection} :(`
+                  }
+                  else{
+                     return `You win! ${playerSelection} beats ${computerSelection} :D`
+                  }
+                default: 
+                  return "Invalid option, try again.";      
+            }
+         }
+      }
+      
+      function game(){
+         let playerScore = 0;
+         let computerScore = 0;
+         for (let i = 1; i <= 5; i++){
+            console.log("Round " + i);
+            let playerSelection = prompt("Enter your option: ");
+            let result = roundWinner(playerSelection,computerPlay());
+            console.log(result);
+            result = result.slice(0,8);
+            if ( result === "You win!"){
+               playerScore += 1; 
+            }
+            else if (result === "You lose"){
+               computerScore += 1;
+            }
+            else if (result === "Invalid "){
+               i--;
+            }
+         }
+         if (playerScore === computerScore){
+            return "It's a tie!"
+         }
+         return (playerScore > computerScore)?
+         `You win ${playerScore} against ${computerScore}`:
+         `You lose ${playerScore} against ${computerScore}`; 
+      }
+   </script>
+    <h1>Welcome to Rock Paper Scissors. Chose your option!</h1>
+</body>
+</html>
