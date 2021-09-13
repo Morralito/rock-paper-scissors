@@ -7,8 +7,12 @@
     <title>Rock Paper Scissors by Morralito</title>
 </head>
 <body>
+  <h1>Welcome to Rock Paper Scissors. Chose your option!</h1>
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissors">Scissors</button>   
 
-   <script>
+  <script>
       function computerPlay(){
           const RPS = ["rock", "paper", "scissors"];
           return RPS[Math.floor(Math.random() * (3 - 0) + 0)];
@@ -50,33 +54,43 @@
          }
       }
       
-      function game(){
-         let playerScore = 0;
-         let computerScore = 0;
-         for (let i = 1; i <= 5; i++){
-            console.log("Round " + i);
-            let playerSelection = prompt("Enter your option: ");
-            let result = roundWinner(playerSelection,computerPlay());
-            console.log(result);
-            result = result.slice(0,8);
-            if ( result === "You win!"){
-               playerScore += 1; 
-            }
-            else if (result === "You lose"){
-               computerScore += 1;
-            }
-            else if (result === "Invalid "){
-               i--;
-            }
+      let playerScore = 0;
+      let computerScore = 0;
+      let resetScore = () => computerScore = playerScore = 0;
+      function game(pSelection){
+        
+         let result = roundWinner(pSelection,computerPlay());
+  
+         result = result.slice(0,8);
+         if ( result === "You win!"){
+             playerScore++; 
          }
-         if (playerScore === computerScore){
-            return "It's a tie!"
+         else if (result === "You lose"){
+             computerScore++;
          }
-         return (playerScore > computerScore)?
-         `You win ${playerScore} against ${computerScore}`:
-         `You lose ${playerScore} against ${computerScore}`; 
+         if (playerScore === computerScore === 5 ){
+           resetScore();
+           return "The game ends in a tie";
+         }
+         else if (playerScore === 5) {
+          resetScore();
+          return `You win`
+         }
+         else if (computerScore === 5){
+          resetScore();
+          return `You lose`; 
+         }
       }
-   </script>
-    <h1>Welcome to Rock Paper Scissors. Chose your option!</h1>
+      
+      
+      window.addEventListener('click', function(e){
+          let choice = e.path[0].id;
+          if (!choice) return;
+          console.log(game(choice));
+        });
+      
+  
+  </script>
+    
 </body>
 </html>
