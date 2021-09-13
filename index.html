@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors by Morralito</title>
 </head>
 <body>
   <h1>Welcome to Rock Paper Scissors. Chose your option!</h1>
-  <button id="rock">Rock</button>
-  <button id="paper">Paper</button>
-  <button id="scissors">Scissors</button>   
+  <div id="container">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+  </div>
+  <div id="score-container">
+    <p id="player">
+      Player: 0
+    </p>
+    <p id="computer">
+      Computer: 0
+    </p>
+    <p id="roundResult"></p>     
+  </div>
+  <button style="display: none;" id="playAgain">Play Again?</button>
 
   <script>
+      let playerScore = 0;
+      let computerScore = 0;
+      let player = document.getElementById('player');
+      let computer = document.getElementById('computer');
+      let roundResult = document.getElementById('roundResult');
+      let finalResult = document.getElementById('finalResult');
+      let jugarAgain = document.getElementById('playAgain');
+      let resetScore = () => computerScore = playerScore = 0;
+
       function computerPlay(){
           const RPS = ["rock", "paper", "scissors"];
           return RPS[Math.floor(Math.random() * (3 - 0) + 0)];
@@ -53,14 +75,27 @@
             }
          }
       }
-      
-      let playerScore = 0;
-      let computerScore = 0;
-      let resetScore = () => computerScore = playerScore = 0;
+
+      function playAgain() {
+        jugarAgain.style.display = "block";
+        lista.style.display = "none";
+        jugarAgain.addEventListener('click', e => {
+          if (e.returnValue){
+            resetScore();
+            player.innerText = `Player: ${playerScore}`;
+            computer.innerText = `Computer: ${computerScore}`;
+            jugarAgain.style.display = "none";
+            lista.style.display = "block";
+          }
+        })
+      }
+
       function game(pSelection){
         
          let result = roundWinner(pSelection,computerPlay());
-  
+         roundResult.innerText = result;
+
+         console.log(result);
          result = result.slice(0,8);
          if ( result === "You win!"){
              playerScore++; 
@@ -68,26 +103,28 @@
          else if (result === "You lose"){
              computerScore++;
          }
+
+         player.innerText = `Player: ${playerScore}`;
+         computer.innerText = `Computer: ${computerScore}`;
+
          if (playerScore === computerScore === 5 ){
-           resetScore();
-           return "The game ends in a tie";
+           playAgain();
          }
          else if (playerScore === 5) {
-          resetScore();
-          return `You win`
+          playAgain();
          }
          else if (computerScore === 5){
-          resetScore();
-          return `You lose`; 
+          playAgain();
          }
       }
-      
-      
-      window.addEventListener('click', function(e){
+
+      let lista = document.getElementById('container');
+      lista.addEventListener('click', (e) => {
           let choice = e.path[0].id;
+          console.log(choice);
           if (!choice) return;
-          console.log(game(choice));
-        });
+          game(choice);});
+
       
   
   </script>
