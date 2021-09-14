@@ -1,0 +1,61 @@
+html {
+    font-size: 10px;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(63, 99, 133);
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.main-container {
+    max-width: 76.8rem;
+    height: 573px;
+    background-color: rgba(123, 220, 118, 0.672);
+    margin: 0 auto;
+}
+
+#rock, #paper, #scissors {
+    border: none;
+    margin: 0 20px;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    cursor:pointer;
+    filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
+}
+
+#rock {
+    background: url('/images/rock.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#paper {
+    background: url('/images/paper.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#scissors {
+    background: url('/images/scissors.png') no-repeat;
+    background-size: contain;
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: sandybrown;
+}
+
+#score-container  {
+    background-color: rgb(114, 97, 151);
+}
