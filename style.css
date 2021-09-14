@@ -33,19 +33,19 @@ h1 {
 }
 
 #rock {
-    background: url('/images/rock.png') no-repeat;
+    background: url('/rock.png') no-repeat;
     background-size: contain;
     background-position: center;
 }
 
 #paper {
-    background: url('/images/paper.png') no-repeat;
+    background: url('/paper.png') no-repeat;
     background-size: contain;
     background-position: center;
 }
 
 #scissors {
-    background: url('/images/scissors.png') no-repeat;
+    background: url('/scissors.png') no-repeat;
     background-size: contain;
 }
 
