@@ -16,8 +16,7 @@ h1 {
 
 .main-container {
     max-width: 76.8rem;
-    height: 573px;
-    background-color: rgba(123, 220, 118, 0.672);
+    /* background-color: rgba(123, 220, 118, 0.672); */
     margin: 0 auto;
 }
 
@@ -29,7 +28,14 @@ h1 {
     width: 150px;
     height: 150px;
     cursor:pointer;
+    transition: all .07s ease;
     filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
+}
+
+#scissors:hover, #paper:hover, #rock:hover {
+    transform: scale(1.2) rotate(15deg);
+  
+    filter: drop-shadow(2px 2px 8px rgba(9, 208, 230, 0.85));
 }
 
 #rock {
@@ -53,9 +59,26 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: sandybrown;
+    /* background-color: sandybrown; */
 }
 
 #score-container  {
-    background-color: rgb(114, 97, 151);
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    /* background-color: rgb(114, 97, 151); */
+}
+
+#player, #computer, #roundResult{
+    width: 50%;
+    text-align: center; 
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    padding: 3rem 0 0 0; 
+    margin: 0;
+} 
+
+#roundResult {
+    width: 100%;
 }
