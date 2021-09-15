@@ -1,11 +1,11 @@
-let playerScore = 0;
-let computerScore = 0;
+let playerScore = 5;
+let computerScore = 5;
 let player = document.getElementById('player');
 let computer = document.getElementById('computer');
 let roundResult = document.getElementById('roundResult');
 let finalResult = document.getElementById('finalResult');
 let jugarAgain = document.getElementById('playAgain');
-let congratulationScreen = document.getElementById('congratulations');
+let congratulationScreen = document.getElementsByClassName('felicidades')[0];
 let resetScore = () => computerScore = playerScore = 0;
 
 function computerPlay(){
@@ -50,15 +50,17 @@ function roundWinner(playerSelection, computerSelection){
 }
 
 function playAgain() {
-  jugarAgain.style.display = "block";
-  lista.style.display = "none";
+  jugarAgain.classList.remove('vanish');
+  lista.classList.add('vanish');
+  congratulationScreen.classList.remove('vanish');
   jugarAgain.addEventListener('click', e => {
     if (e.returnValue){
       resetScore();
       player.innerText = `Player: ${playerScore}`;
       computer.innerText = `Computer: ${computerScore}`;
-      jugarAgain.style.display = "none";
-      lista.style.display = "flex";
+      jugarAgain.classList.add('vanish');
+      congratulationScreen.classList.add('vanish');
+      lista.classList.remove('vanish');
     }
   });
 }
