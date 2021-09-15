@@ -1,5 +1,5 @@
-let playerScore = 5;
-let computerScore = 5;
+let playerScore = 0;
+let computerScore = 0;
 let player = document.getElementById('player');
 let computer = document.getElementById('computer');
 let roundResult = document.getElementById('roundResult');
