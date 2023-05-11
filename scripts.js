@@ -160,5 +160,3 @@ function game() {
     console.log('Hubieron ' + empates + ' empates!');
     
 }
-
-game();
