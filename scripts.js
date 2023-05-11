@@ -19,9 +19,27 @@ function eleccionComputadora() {
     return opciones[eleccion];
 }
 
+
+function validarEntrada(eleccion){
+
+    if(eleccion !== 'piedra' && eleccion !== 'papel' && eleccion !== 'tijera'){
+        window.alert('"'+ eleccion + '" No es una opción inválida. Presion Aceptar y vuelva a intentarlo.');
+        return true;
+    }
+    return false;
+}
+
 function eleccionJugador() {
 
-    let eleccion = prompt('Piedra, Papel o Tijera?: ').toLowerCase();
+    let eleccion = '';
+    let invalido;
+
+    do {
+        invalido = false;
+        eleccion = prompt('Piedra, Papel o Tijera?: ').toLowerCase();
+        invalido = validarEntrada(eleccion);
+    }while (invalido);
+    
     return eleccion; 
 }
 
