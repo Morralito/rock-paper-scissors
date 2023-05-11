@@ -112,14 +112,53 @@ function jugarRonda(eleccion_jugador, eleccion_computadora) {
             }
     }
 
-} //hay que validar entrada de usuario para evitar que ingrese otra cosa que no sea piedra papel o tijera.
+}
+
+function ganadorPartida(victoriasJugador, victoriasComputadora) {
+    if (victoriasJugador > victoriasComputadora){
+        return 'Jugador ganó ' + victoriasJugador + ' a ' + victoriasComputadora;
+    }
+    else if (victoriasJugador < victoriasComputadora){
+        return 'Computadora ganó ' + victoriasComputadora + ' a ' + victoriasJugador;
+    }
+    else {
+        return 'Empate!'
+    }
+}
 
 function game() {
-    let player = eleccionJugador();
-    let computer = eleccionComputadora();
-    console.log(player);
-    console.log(computer);
+   
+    let victoriasJugador = 0;
+    let victoriasComputadora = 0;
+    let empates = 0;
+
+    for (let i = 0; i < 5; i++){
+
+        let jugador = eleccionJugador();
+        let computadora = eleccionComputadora();
+        console.log(jugador);
+        console.log(computadora);
+
+        let resultado = jugarRonda(jugador, computadora);
+        console.log(resultado);
     
-    let result = jugarRonda(player, computer);
-    console.log(result);
+        if (resultado === 1) {
+            victoriasJugador++;
+        }
+        else if (resultado === -1){
+            victoriasComputadora++;
+        }
+        else {
+            empates++;
+        }
+
+
+    }
+
+    console.log('Resultados: ');
+    console.log(ganadorPartida(victoriasJugador, victoriasComputadora));
+    console.log('Hubieron ' + empates + ' empates!');
+    
 }
+
+game();
