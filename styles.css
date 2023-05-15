@@ -25,7 +25,9 @@ h1 {
 .piedra, .papel, .tijera {
 	
 	border: 1px solid black;
+    cursor:pointer;
 }
+
 
 .puntajes {
 	display: flex;
