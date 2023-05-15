@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+body {
+	 font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #ccc;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+.opciones {
+	display: flex;
+  gap: 20px;
+	font-size: 40px;
+}
+
+.piedra, .papel, .tijera {
+	
+	border: 1px solid black;
+}
+
+.puntajes {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.jugadores {
+	display: flex;
+	gap: 100px
+}
+
+.ganador, .reiniciar {
+	visibility: hidden;
+}
