@@ -5,20 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
     <title>PIEDRA, PAPEL O TIJERA - Consola</title>
 </head>
 <body>
-
-<h1>JUEGO DE PIEDRA PAPEL O TIJERA</h1>
-<p>Instrucciones</p>
-<ol>
-    <li>Presionar la tecla F12</li>
-    <li>Click a la pestaña de consola o apretar la tecla ESC</li>
-    <li>Dentro de la consola escribir game()</li>
-    <li>Jugar!</li>
-</ol>
-
-<p>Asegurate de escribir la palabra palabra "piedra", "papel", "tijera" de manera correcta.</p>
+    <div class="main-container">
+        <h1>PIEDRA, PAPEL O TIJERA</h1>
+    
+        <div class="opciones">
+            <div id="piedra" class="piedra">Piedra</div>
+            <div id="papel" class="papel">Papel</div>
+            <div id="tijera" class="tijera">Tijera</div>
+        </div>
+    
+        <div class="puntajes">
+            <h2>PUNTAJE</h2>
+            <div class="jugadores">
+                <p>Usuario: <span class="puntajeUsuario"></span> </p>
+                <p>Computadora: <span  class="puntajeBot"></span></p>
+            </div>
+                <p>Empates: <span class="empates"></span></p>
+                <p class="ganador"></p>
+                <button class="reiniciar" type="button">Click para volver a jugar</button>
+        </div>
+    </div>    
+    <script src="scripts.js"></script>
 </body>
 </html>
