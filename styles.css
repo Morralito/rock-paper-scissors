@@ -1,15 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 
 body {
-	 font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
+    background-color: #282a36; 
+    color: aliceblue;
 }
 
 .main-container {
-	min-height: 100vh;
+	min-height: 98vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #ccc;
+    user-select: none;
 }
 
 h1 {
@@ -18,14 +20,19 @@ h1 {
 
 .opciones {
 	display: flex;
-  gap: 20px;
-	font-size: 40px;
+     gap: 50px;
+	font-size: 250px;
 }
 
 .piedra, .papel, .tijera {
-	
-	border: 1px solid black;
     cursor:pointer;
+    filter: drop-shadow(0 0 10px #18181a);
+    transition: transform 100ms;
+}
+
+
+.piedra:hover, .papel:hover, .tijera:hover {
+    transform: scale(1.05);
 }
 
 
